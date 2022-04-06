@@ -5,6 +5,8 @@ const {
   createUser,
   updateUser,
   deleteUser,
+  addFriend,
+  removeFriend
 } = require('../../controllers/thoughtController.js');
 
 // /api/users
@@ -17,9 +19,12 @@ router
   .put(updateUser)
   .delete(deleteUser);
 
+// /api/users/:userId/friends
+router.route('/:userId/friends/:friendId').post(addFriend).delete(removeFriend);
+
+
+
 module.exports = router;
 
-// /api/users/:userId/friends
-router.route('/:userId/friends/:friendId').post(addAssignment).delete(removeAssignment);
 
 //bonus: remove a user's associated thoughts when deleted

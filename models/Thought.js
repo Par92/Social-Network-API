@@ -23,8 +23,10 @@ const thoughtSchema = new Schema(
   },
   {
     toJSON: {
+      virtuals: true,
       getters: true,
     },
+    id: false
   }
 );
 thoughtSchema
@@ -33,14 +35,8 @@ thoughtSchema
   .get(function () {
     return this.reactions.length;
   })
-  // Setter to set the first and last name
-  // .set(function (v) {
-  //   const first = v.split(' ')[0];
-  //   const last = v.split(' ')[1];
-  //   this.set({ first, last });
-  // });
 
 // Initialize our Thought model
-const Thought = model('thought', thoughtSchema);
+const Thought = model('Thought', thoughtSchema);
 
 module.exports = Thought;

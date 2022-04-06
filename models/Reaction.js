@@ -1,10 +1,10 @@
-const { Schema, model } = require('mongoose');
+const { Schema, Types } = require('mongoose');
 
 const reactionSchema = new Schema(
   {
     reactionId: {
-     //use mongoose's object id data type
-     //default value is set to a new objectId
+     type: Schema.Types.ObjectId,
+     default: () => new Types.ObjectId()
     },
     reactionBody: {
       type: String,
@@ -20,10 +20,10 @@ const reactionSchema = new Schema(
       default: Date.now(),
       // use a getter method to format the timestamp on query
     },
+    toJSON: {getters: true},
+    id: false
   },
 );
 
-//TODO: change this from a model to the reaction feild's subdocument schema in the thought model.
-const Reaction = model('reaction', reactionSchema);
 
-module.exports = Reaction;
+module.exports = reactionSchema;
