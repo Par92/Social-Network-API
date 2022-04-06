@@ -1,4 +1,5 @@
-const { User, Thought } = require('../models');
+const { Thought } = require('../models');
+const User = require('../models/User');
 
 module.exports = {
     // Get all thoughts
@@ -10,7 +11,6 @@ module.exports = {
     // Get a thought
     getSingleThought(req, res) {
       Thought.findOne({ _id: req.params.thoughtId })
-        // .select('-__v')
         .then((thought) =>
           !thought
             ? res.status(404).json({ message: 'No thought with that ID' })

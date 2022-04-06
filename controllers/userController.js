@@ -1,5 +1,5 @@
 // ObjectId() method for converting studentId string into an ObjectId for querying database
-const { ObjectId } = require('mongoose').Types;
+// const { ObjectId } = require('mongoose').Types;
 const { User, Thought } = require('../models');
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     },
     // Get one user
     getSingleUser(req, res) {
-      User.findOne({ _id: req.params.id })
+      User.findOne({ _id: req.params.userId })
         .populate('thoughts')
         .populate('friends')
         .then((user) =>
