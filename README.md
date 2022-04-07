@@ -24,7 +24,8 @@ NoSQL
   When the application is cloned, the user will run the intallation and then start the server with 'node server.js.' Then the user will use an API client of their chosing and run the routes at localhost3001. The following video walkthrough demonstrates the functionality of the Social Network API.
   
 
-
+video link: <br />
+[Video](https://drive.google.com/file/d/14XGA4NaRKqncvaW-hk2ylyqBOzViBTiG/view)
   
 
 
