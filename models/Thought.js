@@ -13,7 +13,7 @@ const thoughtSchema = new Schema(
     createdAt: {
       type: Date,
       default: Date.now(),
-      //use a getter method to format the timestamp on query
+      get: (val) => Date(val).toString(),
     },
     username: {
       type: String,
@@ -38,5 +38,6 @@ thoughtSchema
 
 // Initialize our Thought model
 const Thought = model('Thought', thoughtSchema);
+const thoughtExp = {Thought, thoughtSchema}
 
-module.exports = Thought;
+module.exports = thoughtExp;
